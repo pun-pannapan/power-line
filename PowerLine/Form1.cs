@@ -1,12 +1,9 @@
 using System.IO.Ports;
 using System.Text.Json;
-using System.Windows.Forms;
-using Line.Messaging;
-using Line.Messaging.Webhooks;
 using Settings = PowerLine.Properties.Settings;
 
 namespace PowerLine
-{   
+{
     public partial class Form1 : Form
     {
         static SerialPort _serialPort;
@@ -63,9 +60,7 @@ namespace PowerLine
                 else
                 {
                     var jsonString = _serialPort.ReadLine();
-                    var powerLine = JsonSerializer.Deserialize<PowerLine>(jsonString);
-
-                   
+                    var powerLine = JsonSerializer.Deserialize<PowerLine>(jsonString);                   
 
                     if (powerLine?.L == 1)
                     {
@@ -118,9 +113,9 @@ namespace PowerLine
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                //  Block of code to handle errors
+                //Block of code to handle errors
+                //Notify error alert if enable
             }
-
         }
 
         private void alertNotify()
