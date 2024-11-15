@@ -104,5 +104,14 @@ namespace PowerLine.Properties {
                 this["ChannelAccessToken"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
+        public int IntervalCheckTimeInMillisecond {
+            get {
+                return ((int)(this["IntervalCheckTimeInMillisecond"]));
+            }
+        }
     }
 }

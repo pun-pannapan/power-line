@@ -1,5 +1,6 @@
 using System.IO.Ports;
 using System.Text.Json;
+using System.Windows.Forms;
 using Line.Messaging;
 using Line.Messaging.Webhooks;
 using Settings = PowerLine.Properties.Settings;
@@ -160,7 +161,10 @@ namespace PowerLine
                 {
                     _serialPort.Open();
                 }
-               
+
+                timer1.Stop();
+                timer1.Interval = Convert.ToInt32(_settings.IntervalCheckTimeInMillisecond);
+                timer1.Start();
             }
             catch (Exception ex)
             {
