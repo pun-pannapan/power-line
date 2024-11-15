@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerLine", "PowerLine\PowerLine.csproj", "{D0F3A515-8288-4929-82AE-331CB99F2A0E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Line.Messaging", "Line.Messaging\Line.Messaging.csproj", "{CFA5E9DA-E279-47C9-9983-4E63FAB14ECF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D0F3A515-8288-4929-82AE-331CB99F2A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0F3A515-8288-4929-82AE-331CB99F2A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0F3A515-8288-4929-82AE-331CB99F2A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFA5E9DA-E279-47C9-9983-4E63FAB14ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFA5E9DA-E279-47C9-9983-4E63FAB14ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFA5E9DA-E279-47C9-9983-4E63FAB14ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFA5E9DA-E279-47C9-9983-4E63FAB14ECF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
