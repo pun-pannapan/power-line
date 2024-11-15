@@ -1,6 +1,6 @@
 ﻿using Microsoft.WindowsAzure.Storage.Table;
 
-namespace PowerLine.Models
+namespace LineWebService.Models
 {
     public class EventSourceState : TableEntity
     {

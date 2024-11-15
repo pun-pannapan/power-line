@@ -1,7 +1,8 @@
 ﻿using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
+using System.Threading.Tasks;
 
-namespace PowerLine.CloudStorage
+namespace LineWebService.CloudStorage
 {
     public class TableStorage<T> where T : TableEntity, new()
     {

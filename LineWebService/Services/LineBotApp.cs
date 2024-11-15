@@ -1,7 +1,7 @@
 ﻿using Line.Messaging.Webhooks;
 using Line.Messaging;
-using PowerLine.CloudStorage;
-using PowerLine.Models;
+using LineWebService.CloudStorage;
+using LineWebService.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace PowerLine.Services
+namespace LineWebService.Services
 {
     internal class LineBotApp : WebhookApplication
     {

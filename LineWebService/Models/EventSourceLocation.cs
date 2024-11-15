@@ -1,4 +1,4 @@
-﻿namespace PowerLine.Models
+﻿namespace LineWebService.Models
 {
     public class EventSourceLocation : EventSourceState
     {
