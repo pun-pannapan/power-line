@@ -1,11 +1,12 @@
 using System.IO.Ports;
 using System.Text.Json;
+using Settings = PowerLine.Properties.Settings;
 namespace PowerLine
-{
-   
+{   
     public partial class Form1 : Form
     {
         static SerialPort _serialPort;
+        private Settings _settings = Settings.Default;
         public Form1()
         {
             InitializeComponent();
@@ -57,9 +58,12 @@ namespace PowerLine
                 }
                 else
                 {
-                    string jsonString = _serialPort.ReadLine();
-                    PowerLine powerLine = JsonSerializer.Deserialize<PowerLine>(jsonString);
-                    if (powerLine.L == 1)
+                    var jsonString = _serialPort.ReadLine();
+                    var powerLine = JsonSerializer.Deserialize<PowerLine>(jsonString);
+
+                   
+
+                    if (powerLine?.L == 1)
                     {
                         txtvoltage1.Text = powerLine.voltage.ToString();
                         txtcurrent1.Text = powerLine.current.ToString();
@@ -68,7 +72,7 @@ namespace PowerLine
                         txtfrequency1.Text = powerLine.frequency.ToString();
                         txtpf1.Text = powerLine.pf.ToString();
                     }
-                    else if (powerLine.L == 2)
+                    else if (powerLine?.L == 2)
                     {
                         txtvoltage2.Text = powerLine.voltage.ToString();
                         txtcurrent2.Text = powerLine.current.ToString();
@@ -77,7 +81,7 @@ namespace PowerLine
                         txtfrequency2.Text = powerLine.frequency.ToString();
                         txtpf2.Text = powerLine.pf.ToString();
                     }
-                    else if (powerLine.L == 3)
+                    else if (powerLine?.L == 3)
                     {
                         txtvoltage3.Text = powerLine.voltage.ToString();
                         txtcurrent3.Text = powerLine.current.ToString();
@@ -89,16 +93,22 @@ namespace PowerLine
                     string[] arr = new string[7];
                     ListViewItem item;
 
-                    arr[0] = powerLine.L.ToString();
-                    arr[1] = powerLine.voltage.ToString();
-                    arr[2] = powerLine.current.ToString();
-                    arr[3] = powerLine.power.ToString();
-                    arr[4] = powerLine.energy.ToString();
-                    arr[5] = powerLine.frequency.ToString();
-                    arr[6] = powerLine.pf.ToString();
+                    arr[0] = powerLine == null ? "" : powerLine.L.ToString();
+                    arr[1] = powerLine == null ? "" : powerLine.voltage.ToString();
+                    arr[2] = powerLine == null ? "" : powerLine.current.ToString();
+                    arr[3] = powerLine == null ? "" : powerLine.power.ToString();
+                    arr[4] = powerLine == null ? "" : powerLine.energy.ToString();
+                    arr[5] = powerLine == null ? "" : powerLine.frequency.ToString();
+                    arr[6] = powerLine == null ? "" : powerLine.pf.ToString();
 
                     item = new ListViewItem(arr);
                     listView1.Items.Add(item);
+
+                    var vol1 = txtvoltage1.Text;
+                    if (string.IsNullOrWhiteSpace(vol1))
+                    {
+                        alertNotify();
+                    }
                 }
             }
             catch (Exception ex)
@@ -107,6 +117,23 @@ namespace PowerLine
                 //  Block of code to handle errors
             }
 
+        }
+
+        private void alertNotify()
+        {
+            if (_settings.LastNotifyDateTime == default(System.DateTime)) 
+            {
+                _settings.LastNotifyDateTime = DateTime.Now;
+            }
+
+            var currentDateTime = DateTime.Now;
+            var lastNotify = _settings.LastNotifyDateTime;
+            var difference = currentDateTime - lastNotify;
+
+            if (difference.TotalMinutes > _settings.NotifyPeriodInMinutes) 
+            {
+                //do notify
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
