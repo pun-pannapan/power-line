@@ -78,5 +78,31 @@ namespace PowerLine.Properties {
                 return ((int)(this["NotifyPeriodInMinutes"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("907ff07d743e00f2309f8883d58cf146")]
+        public string ChannelSecret {
+            get {
+                return ((string)(this["ChannelSecret"]));
+            }
+            set {
+                this["ChannelSecret"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("OA8lJuDirWXN07Lp8TahvQMjKajsoB35hGqMzZm9T8SSKZfxb7Eaec5wBS5rnsZ/3fR9obx81xFQ4UCi6" +
+            "SeVTyUyysvA9tQN7aXU5DDZQYEgkGBDTwYZjgg1pfzut2yixDChjY9ecMvT2hQ9aH/HLAdB04t89/1O/" +
+            "w1cDnyilFU=")]
+        public string ChannelAccessToken {
+            get {
+                return ((string)(this["ChannelAccessToken"]));
+            }
+            set {
+                this["ChannelAccessToken"] = value;
+            }
+        }
     }
 }
