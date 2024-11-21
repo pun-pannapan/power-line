@@ -104,7 +104,9 @@ namespace PowerLine
                     listView1.Items.Add(item);
 
                     var vol1 = txtvoltage1.Text;
-                    if (string.IsNullOrWhiteSpace(vol1))
+                    var vol2 = txtvoltage2.Text;
+                    var vol3 = txtvoltage3.Text;
+                    if (string.IsNullOrWhiteSpace(vol1) && string.IsNullOrWhiteSpace(vol2) && string.IsNullOrWhiteSpace(vol3))
                     {
                         AlertNotifyAsync();
                     }

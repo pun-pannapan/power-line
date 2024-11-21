@@ -25,7 +25,7 @@ namespace PowerLine.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("จุดที่ 1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ทดสอบจุดที่ 1")]
         public string Location {
             get {
                 return ((string)(this["Location"]));
@@ -34,7 +34,7 @@ namespace PowerLine.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("กระแสไฟฟ้าถูกตัดที่")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ทดสอบการแจ้งเตือนระบบตรวจสอบกระแสไฟฟ้า")]
         public string NotifyMessage {
             get {
                 return ((string)(this["NotifyMessage"]));
@@ -140,7 +140,7 @@ namespace PowerLine.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("เกิดปัญหาที่ระบบกันขโมยที่")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ทดสอบการแจ้งเตือนระบบตรวจสอบกระแสไฟฟ้า")]
         public string ErrorMessage {
             get {
                 return ((string)(this["ErrorMessage"]));

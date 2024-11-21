@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="Location" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">จุดที่ 1</Value>
+      <Value Profile="(Default)">ทดสอบจุดที่ 1</Value>
     </Setting>
     <Setting Name="NotifyMessage" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">กระแสไฟฟ้าถูกตัดที่</Value>
+      <Value Profile="(Default)">ทดสอบการแจ้งเตือนระบบตรวจสอบกระแสไฟฟ้า</Value>
     </Setting>
     <Setting Name="LastNotifyDateTime" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)" />
@@ -36,7 +36,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ErrorMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">เกิดปัญหาที่ระบบกันขโมยที่</Value>
+      <Value Profile="(Default)">ทดสอบการแจ้งเตือนระบบตรวจสอบกระแสไฟฟ้า</Value>
     </Setting>
     <Setting Name="LastErrorDateTime" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)" />
