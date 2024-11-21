@@ -122,13 +122,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Images\GitHubIcon\1040.png" />
+    <Content Include="Images\GitHubIcon\240.png" />
+    <Content Include="Images\GitHubIcon\300.png" />
+    <Content Include="Images\GitHubIcon\460.png" />
+    <Content Include="Images\GitHubIcon\700.png" />
+    <Content Include="Images\richmenu.PNG" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="CloudStorage\BlobStorage.cs" />
+    <Compile Include="CloudStorage\TableStorage.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
+    <Compile Include="Controllers\LineBotController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LineBotApp.cs" />
+    <Compile Include="Models\EventSourceLocation.cs" />
+    <Compile Include="Models\EventSourceState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -142,8 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Line.Messaging\Line.Messaging.csproj">
