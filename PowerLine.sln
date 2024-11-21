@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerLine", "PowerLine\Powe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Line.Messaging", "Line.Messaging\Line.Messaging.csproj", "{CFA5E9DA-E279-47C9-9983-4E63FAB14ECF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Line.MessageApi", "Line.MessageApi\Line.MessageApi.csproj", "{ECED38F3-A915-4650-9A9E-974D925E4480}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CFA5E9DA-E279-47C9-9983-4E63FAB14ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFA5E9DA-E279-47C9-9983-4E63FAB14ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFA5E9DA-E279-47C9-9983-4E63FAB14ECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECED38F3-A915-4650-9A9E-974D925E4480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECED38F3-A915-4650-9A9E-974D925E4480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECED38F3-A915-4650-9A9E-974D925E4480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECED38F3-A915-4650-9A9E-974D925E4480}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
