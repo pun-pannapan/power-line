@@ -25,12 +25,19 @@ namespace Line.MessageApi.Controllers
         /// Receive a message from a user and reply to it
         /// </summary>
         [HttpPost]
+        //public async Task<HttpResponseMessage> Post(HttpRequestMessage request)
+        //{
         public async Task<HttpResponseMessage> Post(HttpRequestMessage request)
         {
             var events = await request.GetWebhookEventsAsync(channelSecret);
-            var connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-            var blobStorage = await BlobStorage.CreateAsync(connectionString, "linebotcontainer");
-            var eventSourceState = await TableStorage<EventSourceState>.CreateAsync(connectionString, "eventsourcestate");
+
+            //not using blob now
+            //var connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
+            //var blobStorage = await BlobStorage.CreateAsync(connectionString, "linebotcontainer");
+            //var eventSourceState = await TableStorage<EventSourceState>.CreateAsync(connectionString, "eventsourcestate");
+
+            BlobStorage blobStorage = null;
+            TableStorage<EventSourceState> eventSourceState = null;
 
             var app = new LineBotApp(lineMessagingClient, eventSourceState, blobStorage);
             await app.RunAsync(events);

@@ -1,3 +1,4 @@
+using Line.MessageApi.Controllers;
 using System.IO.Ports;
 using System.Text.Json;
 using Settings = PowerLine.Properties.Settings;
@@ -132,6 +133,7 @@ namespace PowerLine
             if (difference.TotalMinutes > _settings.NotifyPeriodInMinutes) 
             {
                 //do notify
+                var lineBotController = new LineBotController();
             }
         }
 
