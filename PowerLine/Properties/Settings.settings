@@ -21,10 +21,10 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="LineChannelSecret" Type="System.String" Scope="User">
-      <Value Profile="(Default)">907ff07d743e00f2309f8883d58cf146</Value>
+      <Value Profile="(Default)">77684d70357e99a163877e6fc45c3561</Value>
     </Setting>
     <Setting Name="LineChannelAccessToken" Type="System.String" Scope="User">
-      <Value Profile="(Default)">OA8lJuDirWXN07Lp8TahvQMjKajsoB35hGqMzZm9T8SSKZfxb7Eaec5wBS5rnsZ/3fR9obx81xFQ4UCi6SeVTyUyysvA9tQN7aXU5DDZQYEgkGBDTwYZjgg1pfzut2yixDChjY9ecMvT2hQ9aH/HLAdB04t89/1O/w1cDnyilFU=</Value>
+      <Value Profile="(Default)">PzmEFnemYZl+GDkyVQDn/V9v/FJ+1s4EoGLL5PWTSVPdHNMJ+c76/ZEmHfwXa4vW0d4aJJrdCW/50aMVM3RkVRwqJXIjDSck25hqUeRh7rrzkaGBSJU22mf3ZylQwryvV36GSrCId/RPST0BWVZL0gdB04t89/1O/w1cDnyilFU=</Value>
     </Setting>
     <Setting Name="IntervalCheckTimeInMillisecond" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">5000</Value>

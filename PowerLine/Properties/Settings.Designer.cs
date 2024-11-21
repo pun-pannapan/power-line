@@ -81,7 +81,7 @@ namespace PowerLine.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("907ff07d743e00f2309f8883d58cf146")]
+        [global::System.Configuration.DefaultSettingValueAttribute("77684d70357e99a163877e6fc45c3561")]
         public string LineChannelSecret {
             get {
                 return ((string)(this["LineChannelSecret"]));
@@ -93,8 +93,8 @@ namespace PowerLine.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("OA8lJuDirWXN07Lp8TahvQMjKajsoB35hGqMzZm9T8SSKZfxb7Eaec5wBS5rnsZ/3fR9obx81xFQ4UCi6" +
-            "SeVTyUyysvA9tQN7aXU5DDZQYEgkGBDTwYZjgg1pfzut2yixDChjY9ecMvT2hQ9aH/HLAdB04t89/1O/" +
+        [global::System.Configuration.DefaultSettingValueAttribute("PzmEFnemYZl+GDkyVQDn/V9v/FJ+1s4EoGLL5PWTSVPdHNMJ+c76/ZEmHfwXa4vW0d4aJJrdCW/50aMVM" +
+            "3RkVRwqJXIjDSck25hqUeRh7rrzkaGBSJU22mf3ZylQwryvV36GSrCId/RPST0BWVZL0gdB04t89/1O/" +
             "w1cDnyilFU=")]
         public string LineChannelAccessToken {
             get {
