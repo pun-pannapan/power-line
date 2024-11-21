@@ -1,7 +1,6 @@
-using Line.MessageApi.Controllers;
-using System.IO.Ports;
-using System.Text.Json;
+﻿using System.IO.Ports;
 using Settings = PowerLine.Properties.Settings;
+using Line.Messaging;
 
 namespace PowerLine
 {
@@ -61,7 +60,7 @@ namespace PowerLine
                 else
                 {
                     var jsonString = _serialPort.ReadLine();
-                    var powerLine = JsonSerializer.Deserialize<PowerLine>(jsonString);                   
+                    var powerLine = System.Text.Json.JsonSerializer.Deserialize<PowerLine>(jsonString);
 
                     if (powerLine?.L == 1)
                     {
@@ -107,7 +106,7 @@ namespace PowerLine
                     var vol1 = txtvoltage1.Text;
                     if (string.IsNullOrWhiteSpace(vol1))
                     {
-                        alertNotify();
+                        AlertNotifyAsync();
                     }
                 }
             }
@@ -116,12 +115,30 @@ namespace PowerLine
                 Console.WriteLine(ex.Message);
                 //Block of code to handle errors
                 //Notify error alert if enable
+                if (_settings.EnableErrorNotify) 
+                {
+                    if (_settings.LastErrorDateTime == default(System.DateTime))
+                    {
+                        _settings.LastErrorDateTime = DateTime.Now;
+                    }
+
+                    var currentDateTime = DateTime.Now;
+                    var lastError = _settings.LastErrorDateTime;
+                    var difference = currentDateTime - lastError;
+
+
+                    if (difference.TotalMinutes > _settings.NotifyErrorPeriodInMinutes)
+                    {
+                        var message = string.Format("{0} {1}", _settings.ErrorMessage, _settings.Location);
+                        BroadcastLineMessage(message);
+                    }
+                }
             }
         }
 
-        private void alertNotify()
+        private void AlertNotifyAsync()
         {
-            if (_settings.LastNotifyDateTime == default(System.DateTime)) 
+            if (_settings.LastNotifyDateTime == default(System.DateTime))
             {
                 _settings.LastNotifyDateTime = DateTime.Now;
             }
@@ -130,16 +147,25 @@ namespace PowerLine
             var lastNotify = _settings.LastNotifyDateTime;
             var difference = currentDateTime - lastNotify;
 
-            if (difference.TotalMinutes > _settings.NotifyPeriodInMinutes) 
+            if (difference.TotalMinutes > _settings.NotifyPeriodInMinutes)
             {
                 //do notify
-                var lineBotController = new LineBotController();
+                var message = string.Format("{0} {1}", _settings.NotifyMessage, _settings.Location);
+                BroadcastLineMessage(message);
             }
+        }
+
+        private void BroadcastLineMessage(string message)
+        {
+            var boardcastMessage = new TextMessage(message);
+            var messagingClient = new LineMessagingClient(_settings.LineChannelAccessToken, _settings.LineEndponintApi);
+            var task = messagingClient.BroadcastMessageAsync(new List<ISendMessage> { boardcastMessage });
+            task.Wait();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button1.Enabled= false;
+            button1.Enabled = false;
             button2.Enabled = true;
             timer1.Enabled = true;
             _serialPort = new SerialPort(comboBox1.Text);
@@ -165,7 +191,7 @@ namespace PowerLine
             }
             catch (Exception ex)
             {
-               // MessageBox.Show(ex.Message, "Error");              
+                // MessageBox.Show(ex.Message, "Error");              
             }
         }
 

@@ -12,7 +12,7 @@ namespace PowerLine.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.11.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.12.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -72,7 +72,7 @@ namespace PowerLine.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int NotifyPeriodInMinutes {
             get {
                 return ((int)(this["NotifyPeriodInMinutes"]));
@@ -82,12 +82,12 @@ namespace PowerLine.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("907ff07d743e00f2309f8883d58cf146")]
-        public string ChannelSecret {
+        public string LineChannelSecret {
             get {
-                return ((string)(this["ChannelSecret"]));
+                return ((string)(this["LineChannelSecret"]));
             }
             set {
-                this["ChannelSecret"] = value;
+                this["LineChannelSecret"] = value;
             }
         }
         
@@ -96,12 +96,12 @@ namespace PowerLine.Properties {
         [global::System.Configuration.DefaultSettingValueAttribute("OA8lJuDirWXN07Lp8TahvQMjKajsoB35hGqMzZm9T8SSKZfxb7Eaec5wBS5rnsZ/3fR9obx81xFQ4UCi6" +
             "SeVTyUyysvA9tQN7aXU5DDZQYEgkGBDTwYZjgg1pfzut2yixDChjY9ecMvT2hQ9aH/HLAdB04t89/1O/" +
             "w1cDnyilFU=")]
-        public string ChannelAccessToken {
+        public string LineChannelAccessToken {
             get {
-                return ((string)(this["ChannelAccessToken"]));
+                return ((string)(this["LineChannelAccessToken"]));
             }
             set {
-                this["ChannelAccessToken"] = value;
+                this["LineChannelAccessToken"] = value;
             }
         }
         
@@ -111,6 +111,62 @@ namespace PowerLine.Properties {
         public int IntervalCheckTimeInMillisecond {
             get {
                 return ((int)(this["IntervalCheckTimeInMillisecond"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://api.line.me/v2")]
+        public string LineEndponintApi {
+            get {
+                return ((string)(this["LineEndponintApi"]));
+            }
+            set {
+                this["LineEndponintApi"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableErrorNotify {
+            get {
+                return ((bool)(this["EnableErrorNotify"]));
+            }
+            set {
+                this["EnableErrorNotify"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("เกิดปัญหาที่ระบบกันขโมยที่")]
+        public string ErrorMessage {
+            get {
+                return ((string)(this["ErrorMessage"]));
+            }
+            set {
+                this["ErrorMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime LastErrorDateTime {
+            get {
+                return ((global::System.DateTime)(this["LastErrorDateTime"]));
+            }
+            set {
+                this["LastErrorDateTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1440")]
+        public int NotifyErrorPeriodInMinutes {
+            get {
+                return ((int)(this["NotifyErrorPeriodInMinutes"]));
             }
         }
     }

@@ -55,6 +55,18 @@ namespace Line.Messaging.Webhooks
             }
         }
 
+        public void Run(IEnumerable<WebhookEvent> events)
+        {
+            foreach (var ev in events)
+            {
+                switch (ev)
+                {
+                    case MessageEvent message:
+                        OnMessageAsync(message).ConfigureAwait(false);
+                        break;
+                }
+            }
+        }
         protected virtual Task OnMessageAsync(MessageEvent ev) => Task.CompletedTask;
 
         protected virtual Task OnJoinAsync(JoinEvent ev) => Task.CompletedTask;
