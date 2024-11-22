@@ -107,7 +107,7 @@ namespace PowerLine.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3000")]
         public int IntervalCheckTimeInMillisecond {
             get {
                 return ((int)(this["IntervalCheckTimeInMillisecond"]));
@@ -128,7 +128,7 @@ namespace PowerLine.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool EnableErrorNotify {
             get {
                 return ((bool)(this["EnableErrorNotify"]));
@@ -167,6 +167,18 @@ namespace PowerLine.Properties {
         public int NotifyErrorPeriodInMinutes {
             get {
                 return ((int)(this["NotifyErrorPeriodInMinutes"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsSinglePhase {
+            get {
+                return ((bool)(this["IsSinglePhase"]));
+            }
+            set {
+                this["IsSinglePhase"] = value;
             }
         }
     }

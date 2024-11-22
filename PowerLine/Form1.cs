@@ -6,7 +6,8 @@ namespace PowerLine
 {
     public partial class Form1 : Form
     {
-        static SerialPort _serialPort;
+        //static SerialPort _serialPort;
+        private SerialPort _serialPort;
         private Settings _settings = Settings.Default;
         public Form1()
         {
@@ -60,7 +61,14 @@ namespace PowerLine
                 else
                 {
                     var jsonString = _serialPort.ReadLine();
-                    var powerLine = System.Text.Json.JsonSerializer.Deserialize<PowerLine>(jsonString);
+
+                    //sometime can not read value from hardware
+                    //do nothing
+                    if (string.IsNullOrWhiteSpace(jsonString))
+                        return;
+
+                    var powerLine = new PowerLine();
+                    powerLine = System.Text.Json.JsonSerializer.Deserialize<PowerLine>(jsonString);
 
                     if (powerLine?.L == 1)
                     {
@@ -101,15 +109,41 @@ namespace PowerLine
                     arr[6] = powerLine == null ? "" : powerLine.pf.ToString();
 
                     item = new ListViewItem(arr);
+                    if (listView1.Items.Count == 50)
+                    {
+                        listView1.Items.Clear();
+                    }
                     listView1.Items.Add(item);
 
                     var vol1 = txtvoltage1.Text;
                     var vol2 = txtvoltage2.Text;
                     var vol3 = txtvoltage3.Text;
-                    if (string.IsNullOrWhiteSpace(vol1) && string.IsNullOrWhiteSpace(vol2) && string.IsNullOrWhiteSpace(vol3))
+
+                    //var cur1 = txtcurrent1.Text;
+                    //var cur2 = txtcurrent2.Text;
+                    //var cur3 = txtcurrent3.Text;
+
+                    //var frq1 = txtfrequency1.Text;
+                    //var frq2 = txtfrequency2.Text;
+                    //var frq3 = txtfrequency3.Text;
+
+
+                    //if can read value == 0 will trigger the alert
+                    if (_settings.IsSinglePhase == true)
                     {
-                        AlertNotifyAsync();
+                        if (vol1 == "0")
+                        {
+                            AlertNotifyAsync();
+                        }
                     }
+                    else 
+                    {
+                        if (vol1 == "0" || vol2 == "0" || vol3 == "0")
+                        {
+                            AlertNotifyAsync();
+                        }
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -131,11 +165,17 @@ namespace PowerLine
 
                     if (difference.TotalMinutes > _settings.NotifyErrorPeriodInMinutes)
                     {
+                        _settings.LastErrorDateTime = DateTime.Now;
                         var message = string.Format("{0} {1}", _settings.ErrorMessage, _settings.Location);
                         BroadcastLineMessage(message);
                     }
                 }
             }
+        }
+
+        private void ClearValue()
+        {
+            throw new NotImplementedException();
         }
 
         private void AlertNotifyAsync()
@@ -152,6 +192,7 @@ namespace PowerLine
             if (difference.TotalMinutes > _settings.NotifyPeriodInMinutes)
             {
                 //do notify
+                _settings.LastNotifyDateTime = DateTime.Now;
                 var message = string.Format("{0} {1}", _settings.NotifyMessage, _settings.Location);
                 BroadcastLineMessage(message);
             }
