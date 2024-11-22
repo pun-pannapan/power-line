@@ -43,12 +43,12 @@ namespace PowerLine.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.DateTime LastNotifyDateTime {
+        public global::System.DateTime LastNotifyVoltageDateTime {
             get {
-                return ((global::System.DateTime)(this["LastNotifyDateTime"]));
+                return ((global::System.DateTime)(this["LastNotifyVoltageDateTime"]));
             }
             set {
-                this["LastNotifyDateTime"] = value;
+                this["LastNotifyVoltageDateTime"] = value;
             }
         }
         
@@ -72,10 +72,10 @@ namespace PowerLine.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int NotifyPeriodInMinutes {
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int NotifyVoltageIssuePeriodInMinutes {
             get {
-                return ((int)(this["NotifyPeriodInMinutes"]));
+                return ((int)(this["NotifyVoltageIssuePeriodInMinutes"]));
             }
         }
         
@@ -108,9 +108,9 @@ namespace PowerLine.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("3000")]
-        public int IntervalCheckTimeInMillisecond {
+        public int IntervalCheckVoltTimeInMillisecond {
             get {
-                return ((int)(this["IntervalCheckTimeInMillisecond"]));
+                return ((int)(this["IntervalCheckVoltTimeInMillisecond"]));
             }
         }
         

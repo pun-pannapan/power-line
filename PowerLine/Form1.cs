@@ -180,19 +180,19 @@ namespace PowerLine
 
         private void AlertNotifyAsync()
         {
-            if (_settings.LastNotifyDateTime == default(System.DateTime))
+            if (_settings.LastNotifyVoltageDateTime == default(System.DateTime))
             {
-                _settings.LastNotifyDateTime = DateTime.Now;
+                _settings.LastNotifyVoltageDateTime = DateTime.Now;
             }
 
             var currentDateTime = DateTime.Now;
-            var lastNotify = _settings.LastNotifyDateTime;
+            var lastNotify = _settings.LastNotifyVoltageDateTime;
             var difference = currentDateTime - lastNotify;
 
-            if (difference.TotalMinutes > _settings.NotifyPeriodInMinutes)
+            if (difference.TotalMinutes > _settings.NotifyVoltageIssuePeriodInMinutes)
             {
                 //do notify
-                _settings.LastNotifyDateTime = DateTime.Now;
+                _settings.LastNotifyVoltageDateTime = DateTime.Now;
                 var message = string.Format("{0} {1}", _settings.NotifyMessage, _settings.Location);
                 BroadcastLineMessage(message);
             }
@@ -229,7 +229,7 @@ namespace PowerLine
                 }
 
                 timer1.Stop();
-                timer1.Interval = Convert.ToInt32(_settings.IntervalCheckTimeInMillisecond);
+                timer1.Interval = Convert.ToInt32(_settings.IntervalCheckVoltTimeInMillisecond);
                 timer1.Start();
             }
             catch (Exception ex)
