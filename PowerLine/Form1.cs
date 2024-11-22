@@ -54,20 +54,23 @@ namespace PowerLine
         {
             try
             {
-                if (!_serialPort.IsOpen)
-                {
-                    _serialPort.Open();
-                }
-                else
-                {
-                    var jsonString = _serialPort.ReadLine();
+                //if (!_serialPort.IsOpen)
+                //{
+                //    _serialPort.Open();
+                //}
+                //else
+                //{
+                _serialPort.Close();
+                _serialPort.Open();
+                var jsonString = _serialPort.ReadLine();
 
                     //sometime can not read value from hardware
                     //do nothing
                     if (string.IsNullOrWhiteSpace(jsonString))
                         return;
-
-                    var powerLine = new PowerLine();
+                    
+                //var powerLine = new PowerLine() { L =0, current=0, energy=0, frequency=0, pf=0, power=0, voltage=0};
+                var powerLine = new PowerLine();
                     powerLine = System.Text.Json.JsonSerializer.Deserialize<PowerLine>(jsonString);
 
                     if (powerLine?.L == 1)
@@ -144,7 +147,7 @@ namespace PowerLine
                         }
                     }
 
-                }
+                //}
             }
             catch (Exception ex)
             {
