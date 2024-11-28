@@ -203,7 +203,25 @@ namespace PowerLine
 
         private void BroadcastLineMessage(string message)
         {
-            var boardcastMessage = new TextMessage(message);
+            //original text message can work
+            //var boardcastMessage = new TextMessage(message);
+            //var messagingClient = new LineMessagingClient(_settings.LineChannelAccessToken, _settings.LineEndponintApi);
+            //var task = messagingClient.BroadcastMessageAsync(new List<ISendMessage> { boardcastMessage });
+            //task.Wait();
+
+            var altText = "ข้อมูลเพิ่มเติม";
+            var boardcastMessage = new FlexMessage(altText);
+            var components = new List<IFlexComponent>();
+            var component1 = new TextComponent() { Text = message, Wrap = true };
+            var component2 = new ButtonComponent() { Action = new UriTemplateAction("คลิกที่นี่เพื่อดูข้อมูลเพิ่มเติม", "http://49.0.91.113:20080/LiveNotifyVideo/") };
+            components.Add(component1);
+            components.Add(component2);
+
+            boardcastMessage.Contents = new BubbleContainer() { Body = new BoxComponent() { 
+                Layout = BoxLayout.Vertical,
+                Contents = components
+            } };
+
             var messagingClient = new LineMessagingClient(_settings.LineChannelAccessToken, _settings.LineEndponintApi);
             var task = messagingClient.BroadcastMessageAsync(new List<ISendMessage> { boardcastMessage });
             task.Wait();
